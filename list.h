@@ -3,7 +3,7 @@
 #include <stdbool.h>
 
 //our list type that we'll use throughout 
-//along with the helper functions: newitem and append
+//along with the helper functions: new_item and append
 //this is boring, go down to main
 typedef struct list list;
 

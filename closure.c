@@ -5,7 +5,7 @@
 #include "gc.h"
 
 envobj *
-envitem(void *var, ssize_t size) {
+env_item(void *var, ssize_t size) {
   envobj *env = malloc(sizeof(envobj));
   env->val = var;
   env->size = size;
@@ -48,11 +48,11 @@ call(closure *c, envobj *env) {
 //helper functions (syntactic sugar...erm...i guess...)
 //these make using closures easier
 envobj *
-liftint(int a) {
+lift_int(int a) {
   int *v = malloc(sizeof(int));
   *v = a;
   gc_register((void *)v, STANDARD);
-  envobj *o = envitem((void *)v, sizeof(int)); 
+  envobj *o = env_item((void *)v, sizeof(int)); 
   return o;
 }
 
@@ -63,12 +63,12 @@ envobj_free(void *_obj) {
 }
 
 list *
-liftlist(list *l, ssize_t s) {
+lift_list(list *l, ssize_t s) {
   list *o = NULL;
   list *curr;
 
   for (curr = l; curr != NULL; curr = curr->next) {
-     envobj *lifted = envitem(curr->val, s); 
+     envobj *lifted = env_item(curr->val, s); 
      o = append(o, (void *)lifted);
   }
   return o;

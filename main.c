@@ -45,14 +45,14 @@ main(int argc, char **argv) {
   iter(filter(range(0, 10), odd, NULL), printint, NULL); 
   
   //Darker magic?  Not really...
-  closure *addtwo = bind(NULL, add, liftint(2));
-  closure *addten = bind(NULL, add, liftint(10));
+  closure *addtwo = bind(NULL, add, lift_int(2));
+  closure *addten = bind(NULL, add, lift_int(10));
 
-  printf("%d\n", *(int *)call(addtwo, liftint(3)));
-  printf("%d\n", *(int *)call(addten, liftint(3)));
+  printf("%d\n", *(int *)call(addtwo, lift_int(3)));
+  printf("%d\n", *(int *)call(addten, lift_int(3)));
 
   //all together now, with pseudo types everywhere woopie!!!
-  list *vars = liftlist(range(0, 10), sizeof(int));
+  list *vars = lift_list(range(0, 10), sizeof(int));
   list *res = lmap(vars, addtwo);
   iter(res, printint, NULL);
 
