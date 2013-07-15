@@ -209,13 +209,13 @@ gc_print(void) {
         printf("LIST");
       break;
       case STANDARD:
-        printf("STANDARD")
+        printf("STANDARD");
       break;
       case ENVOBJ:
-        printf("ENVOBJ")
+        printf("ENVOBJ");
       break;
       case CLOSURE:
-        printf("CLOSURE")
+        printf("CLOSURE");
       break; 
     }
     //this is common to all above cases. Change from last commit. 
@@ -228,13 +228,13 @@ gc_print(void) {
         printf("LIST");
       break;
       case STANDARD:
-        printf("STANDARD")
+        printf("STANDARD");
       break;
       case ENVOBJ:
-        printf("ENVOBJ")
+        printf("ENVOBJ");
       break;
       case CLOSURE:
-        printf("CLOSURE")
+        printf("CLOSURE");
       break; 
     }
     //this is common to all above cases. Change from last commit.

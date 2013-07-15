@@ -49,7 +49,8 @@ filter(list *l, bool (*fn)(void *, void *), void *args) {
 list *
 range(int start, int end) {
   list *o = NULL;
-  for (int i = start; i <= end; ++i) {
+  int i;
+  for (i = start; i <= end; ++i) {
     int *aloc = malloc(sizeof(int));
     *aloc = i;  
     o = append(o, (void *)aloc);
