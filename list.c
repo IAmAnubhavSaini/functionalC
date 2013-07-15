@@ -5,7 +5,7 @@
 #include "gc.h"
 
 list *
-newitem(void *v) {
+new_item(void *v) {
   list *o = malloc(sizeof(list));
   if (o == NULL) {
     exit(1);
@@ -17,7 +17,7 @@ newitem(void *v) {
 }
 
 list *
-copyitem(list *i) {
+copy_item(list *i) {
   list *o = malloc(sizeof(list));
   if (o == NULL) {
     exit(1);
@@ -29,7 +29,7 @@ copyitem(list *i) {
 
 list *
 append(list *l, void *v) {
-  list *ni = newitem(v);
+  list *ni = new_item(v);
   if (l == NULL) {
     return ni;
   }

@@ -12,8 +12,8 @@ struct list {
   list *next;
 };
 
-list *newitem(void *v); 
-list *copyitem(list *i); 
+list *new_item(void *v); 
+list *copy_item(list *i); 
 list *append(list *l, void *v); 
 list *concat(list *h, list *t); 
 list *copy(list *h); 
