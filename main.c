@@ -7,7 +7,7 @@
 
 // a function to play with iter
 void
-printint(void *v, void *args) {
+print_int(void *v, void *args) {
   printf("%d\n", (int)(*(int *)v));
 }
 
@@ -41,8 +41,8 @@ main(int argc, char **argv) {
   
   gc_init(); //initialize the garbage collector
 
-  iter(map(range(0, 10), dbl,NULL), printint, NULL);
-  iter(filter(range(0, 10), odd, NULL), printint, NULL); 
+  iter(map(range(0, 10), dbl,NULL), print_int, NULL);
+  iter(filter(range(0, 10), odd, NULL), print_int, NULL); 
   
   //Darker magic?  Not really...
   closure *addtwo = bind(NULL, add, lift_int(2));
@@ -54,7 +54,7 @@ main(int argc, char **argv) {
   //all together now, with pseudo types everywhere woopie!!!
   list *vars = lift_list(range(0, 10), sizeof(int));
   list *res = lmap(vars, addtwo);
-  iter(res, printint, NULL);
+  iter(res, print_int, NULL);
 
   gc_print(); //show eveything currently in the garbage collector
 
