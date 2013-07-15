@@ -25,7 +25,7 @@ static gc _gc;
 
 //private functions
 void gc_register_destructor(TYPE, void (*)(void *));
-ref *refitem(void *, TYPE);
+ref *ref_item(void *, TYPE);
 void append_unmarked(ref *unmarked);
 void append_marked(ref *marked);
 ref *remove_unmarked(void *obj);
@@ -38,12 +38,12 @@ gc_register_destructor(TYPE type, void (*destructor)(void *)) {
 }
 
 ref *
-refitem(void *ptr, TYPE type) {
-  ref *o = malloc(sizeof(ref));
-  o->ptr = ptr;
-  o->type = type;
-  o->next = NULL;
-  return o;
+ref_item(void *ptr, TYPE type) {
+  ref *r = malloc(sizeof(ref));
+  r->ptr = ptr;
+  r->type = type;
+  r->next = NULL;
+  return r;
 }
 
 void 
@@ -181,7 +181,7 @@ gc_unmark(void *obj) {
 //don't register objs twice; boy that could go poorly
 void
 gc_register(void *obj, TYPE type) {
-  ref *n = refitem(obj, type);
+  ref *n = ref_item(obj, type);
   append_unmarked(n); 
 }
 
