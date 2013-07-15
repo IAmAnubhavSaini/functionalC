@@ -13,20 +13,20 @@ main(int argc, char **argv) {
   //yep, added first version of garbage collector
   gc_init(); //initialize the garbage collector
 
-  iter(map(range(0, 10), dbl,NULL), printint, NULL);
-  iter(filter(range(0, 10), odd, NULL), printint, NULL); 
+  iter(map(range(0, 10), dbl,NULL), print_int, NULL);
+  iter(filter(range(0, 10), odd, NULL), print_int, NULL); 
   
   //Darker magic?  Not really...
-  closure *addtwo = bind(NULL, add, liftint(2));
-  closure *addten = bind(NULL, add, liftint(10));
+  closure *addtwo = bind(NULL, add, lift_int(2));
+  closure *addten = bind(NULL, add, lift_int(10));
 
-  printf("%d\n", *(int *)call(addtwo, liftint(3)));
-  printf("%d\n", *(int *)call(addten, liftint(3)));
+  printf("%d\n", *(int *)call(addtwo, lift_int(3)));
+  printf("%d\n", *(int *)call(addten, lift_int(3)));
 
   //all together now, with pseudo types everywhere woopie!!!
-  list *vars = liftlist(range(0, 10), sizeof(int));
+  list *vars = lift_list(range(0, 10), sizeof(int));
   list *res = lmap(vars, addtwo);
-  iter(res, printint, NULL);
+  iter(res, print_int, NULL);
 
   gc_print(); //show eveything currently in the garbage collector
 
@@ -128,13 +128,13 @@ To make environment variables, we need to lift our types into the environment.
 ```c
 //returns a lifted integer
 envobj *
-liftint(int a);
+lift_int(int a);
 ```
 
 ```c
 //this transforms a list into an environment
 list *
-liftlist(list *l, ssize_t s) 
+lift_list(list *l, ssize_t s) 
 ```
 
 # Garbage Collector
