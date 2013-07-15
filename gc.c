@@ -206,34 +206,38 @@ gc_print(void) {
   for (curr = _gc.unmarked; curr != NULL; curr = curr->next) {
     switch(curr->type) {
       case LIST:
-        printf("LIST at %p\n", curr->ptr);
+        printf("LIST");
       break;
       case STANDARD:
-        printf("STANDARD at %p\n", curr->ptr);
+        printf("STANDARD")
       break;
       case ENVOBJ:
-        printf("ENVOBJ at %p\n", curr->ptr);
+        printf("ENVOBJ")
       break;
       case CLOSURE:
-        printf("CLOSURE at %p\n", curr->ptr);
+        printf("CLOSURE")
       break; 
     }
+    //this is common to all above cases. Change from last commit. 
+    printf(" at %p\n", curr->ptr);
   }
   printf("MARKED FOR SAFE KEEPING:\n");
   for (curr = _gc.marked; curr != NULL; curr = curr->next) {
     switch(curr->type) {
       case LIST:
-        printf("LIST at %p\n", curr->ptr);
+        printf("LIST");
       break;
       case STANDARD:
-        printf("STANDARD at %p\n", curr->ptr);
+        printf("STANDARD")
       break;
       case ENVOBJ:
-        printf("ENVOBJ at %p\n", curr->ptr);
+        printf("ENVOBJ")
       break;
       case CLOSURE:
-        printf("CLOSURE at %p\n", curr->ptr);
+        printf("CLOSURE")
       break; 
     }
+    //this is common to all above cases. Change from last commit.
+    printf(" at %p\n", curr->ptr);
   }
 }
