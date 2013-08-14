@@ -1,3 +1,28 @@
+/* 2013 - onwards Anubhav Saini
+ * github/IAmAnubhavSaini
+ * 
+ * declared and defined in this file
+ * struct ref
+ * struct gc
+ * gc_register_destructor
+ * ref_item
+ * append_unmarked
+ * append_marked
+ * remove_unmarked
+ * remove_marked
+ * standard_free
+ * gc_init
+ * gc_remove
+ * gc_mark
+ * gc_unmark
+ * gc_register
+ * gc_collect
+ * gc_print
+ * 
+ * contains forked code from Charles Cary
+ * this code: github.com/iamanubhavsaini/functionalC
+ */
+ 
 #include <stdlib.h>
 #include <stdio.h>
 #include "gc.h"

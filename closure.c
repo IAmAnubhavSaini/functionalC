@@ -1,3 +1,20 @@
+/* 2013 - onwards Anubhav Saini
+ * github/IAmAnubhavSaini
+ * 
+ * declared in this file
+ * env_item
+ * unbox
+ * bind
+ * call
+ * lift_int
+ * envobj_free
+ * lift_list
+ * closure_free
+ * 
+ * contains forked code from Charles Cary
+ * this code: github.com/iamanubhavsaini/functionalC
+ */
+
 #include <stdlib.h>
 #include <unistd.h>
 #include "list.h"
@@ -15,8 +32,9 @@ env_item(void *var, ssize_t size) {
 
 void *
 unbox(list *l) {
-  envobj *env = (envobj *)l->val;
-  return env->val; 
+  //envobj *env = (envobj *)l->val;
+  //return env->val; 
+  return ((envobj*)l->val)->val;
 }
 
 closure *

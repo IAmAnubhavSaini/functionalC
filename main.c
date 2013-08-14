@@ -1,3 +1,17 @@
+/* 2013 - onwards Anubhav Saini
+ * github/IAmAnubhavSaini
+ * 
+ * declared and defined in this file
+ * print_int
+ * odd
+ * dbl
+ * add
+ * main
+ *
+ * contains forked code from Charles Cary
+ * this code: github.com/iamanubhavsaini/functionalC
+ */
+
 #include <stdlib.h>
 #include <stdio.h>
 #include "list.h"

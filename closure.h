@@ -1,3 +1,22 @@
+/* 2013 - onwards Anubhav Saini
+ * github/IAmAnubhavSaini
+ * 
+ * declared and defined in this file
+ * struct closure
+ * struct envobj
+ * env_item
+ * unbox
+ * bind
+ * call
+ * lift_int
+ * envobj_free
+ * lift_list
+ * closure_free
+ * 
+ * contains forked code from Charles Cary
+ * this code: github.com/iamanubhavsaini/functionalC
+ */
+ 
 #ifndef CLOSURE_H
 #define CLOSURE_H
 #include <unistd.h>
