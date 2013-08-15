@@ -10,16 +10,14 @@
 #include "closure.h"
 
 //some standard functional programming functions
-void
-iter(list *l, void (*fn)(void *, void *), void *args) {
+void  iter(list *l, void (*fn)(void *, void *), void *args) {
   list *curr;
   for (curr = l; curr != NULL; curr = curr->next) {
     (*fn)(curr->val, args); 
   }
 }
 
-list *
-map(list *l, void *(*fn)(void *, void *), void *args) {
+list  *  map(list *l, void *(*fn)(void *, void *), void *args) {
   list *o = NULL;
   list *curr;
   for (curr = l; curr != NULL; curr = curr->next) {
@@ -28,8 +26,7 @@ map(list *l, void *(*fn)(void *, void *), void *args) {
   return o;
 }
 
-list *
-lmap(list *l, closure *cl) {
+list  *  lmap(list *l, closure *cl) {
   list *o = NULL;
   list *curr;
   for (curr = l; curr != NULL; curr = curr->next) {
@@ -38,8 +35,7 @@ lmap(list *l, closure *cl) {
   return o;
 }
 
-list *
-filter(list *l, bool (*fn)(void *, void *), void *args) {
+list  *  filter(list *l, bool (*fn)(void *, void *), void *args) {
   list *o = NULL;
   list *curr;
   for (curr = l; curr != NULL; curr = curr->next) {
@@ -51,16 +47,14 @@ filter(list *l, bool (*fn)(void *, void *), void *args) {
 }
 
 //not lazy
-list *
-range(int start, int end) {
+list  *  range(int start, int end) {
   list *o = NULL;
   int i;
+  int *aloc;
   for (i = start; i <= end; ++i) {
-    int *aloc = malloc(sizeof(int));
+    aloc= malloc(sizeof(int));
     *aloc = i;  
     o = append(o, (void *)aloc);
   }
   return o;
 }
-
-
