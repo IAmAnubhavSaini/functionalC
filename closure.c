@@ -1,4 +1,4 @@
-/* 2013 - onwards Anubhav Saini
+/* 2013 and onwards Anubhav Saini
  * github/IAmAnubhavSaini
  * 
  * declared in this file

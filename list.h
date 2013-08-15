@@ -1,3 +1,8 @@
+/* 2013 and onwards Anubhav Saini
+ * github/IAmAnubhavSaini
+ * 
+ */
+
 #ifndef LIST_H
 #define LIST_H
 #include <stdbool.h>

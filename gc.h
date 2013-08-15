@@ -1,3 +1,8 @@
+/* 2013 and onwards Anubhav Saini
+ * github/IAmAnubhavSaini
+ * 
+ */
+
 #ifndef GC_H
 #define GC_H
 typedef enum TYPE TYPE;

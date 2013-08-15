@@ -1,3 +1,8 @@
+/* 2013 and onwards Anubhav Saini
+ * github/IAmAnubhavSaini
+ * 
+ */
+
 #ifndef FUNCTIONAL_H
 #define FUNCTIONAL_H
 #include "list.h"
