@@ -48,13 +48,38 @@ list  *  filter(list *l, bool (*fn)(void *, void *), void *args) {
 
 //not lazy
 list  *  range(int start, int end) {
-  list *o = NULL;
+  list *temp = NULL;
   int i;
   int *aloc;
-  for (i = start; i <= end; ++i) {
+  for (i = start; i <= end; i+=1) {
     aloc= malloc(sizeof(int));
     *aloc = i;  
-    o = append(o, (void *)aloc);
+    temp = append(temp, (void *)aloc);
   }
-  return o;
+  return temp;
+}
+
+list  *  range1skip(int start, int end){
+  list *temp = NULL;
+  int i, *pi;
+  for( i = start; i <= end; i+=2){
+    pi = (int *) malloc(sizeof(int));
+	*pi = i;
+	temp = append(temp, (void*)pi);
+  }
+  return temp;
+}
+
+list  *  rangeChar(char start, char end){
+  list *temp = NULL;
+  char curr, *pcurr;
+  if(start < 0x21 || end > 0x7F){
+    return NULL;
+  }
+  for( curr = start; curr <= end; curr += 1){
+    pcurr = (char *)malloc(sizeof(char));
+	*pcurr = curr;
+	temp = append(temp, (void*)pcurr);
+  }
+  return temp;
 }

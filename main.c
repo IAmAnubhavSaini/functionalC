@@ -24,7 +24,9 @@ void
 print_int(void *v, void *args) {
   printf("%d\n", (int)(*(int *)v));
 }
-
+void print_char(void *v, void *args){
+  printf("%c\n", (char)(*(char*)v));
+}
 //returns true if int v is odd, false otherwise
 bool
 odd(void *v, void *args) {
@@ -57,24 +59,27 @@ main(int argc, char **argv) {
 
   iter(map(range(0, 10), dbl,NULL), print_int, NULL);
   iter(filter(range(0, 10), odd, NULL), print_int, NULL); 
-  
-  //Darker magic?  Not really...
-  closure *addtwo = bind(NULL, add, lift_int(2));
-  closure *addten = bind(NULL, add, lift_int(10));
+  iter(map(range1skip(0, 20), dbl, NULL), print_int, NULL);
+  iter(rangeChar('a','z'), print_char, NULL);
+  iter(rangeChar(' ','z'), print_char, NULL);//won't get printed
+  iter(rangeChar('1','z'), print_char, NULL);
+  // //Darker magic?  Not really...
+  // closure *addtwo = bind(NULL, add, lift_int(2));
+  // closure *addten = bind(NULL, add, lift_int(10));
 
-  printf("%d\n", *(int *)call(addtwo, lift_int(3)));
-  printf("%d\n", *(int *)call(addten, lift_int(3)));
+  // printf("%d\n", *(int *)call(addtwo, lift_int(3)));
+  // printf("%d\n", *(int *)call(addten, lift_int(3)));
 
-  //all together now, with pseudo types everywhere woopie!!!
-  list *vars = lift_list(range(0, 10), sizeof(int));
-  list *res = lmap(vars, addtwo);
-  iter(res, print_int, NULL);
+  // //all together now, with pseudo types everywhere woopie!!!
+  // list *vars = lift_list(range(0, 10), sizeof(int));
+  // list *res = lmap(vars, addtwo);
+  // iter(res, print_int, NULL);
 
-  gc_print(); //show eveything currently in the garbage collector
+  // gc_print(); //show eveything currently in the garbage collector
 
   gc_collect(); //you can guess what this does
 
-  gc_print(); //anything left?
+  //gc_print(); //anything left?
   
   //NOTE: The garbage collector is a work in progress.  
   //wer're not tracking everything yet and 
